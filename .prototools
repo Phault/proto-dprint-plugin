@@ -1,0 +1,2 @@
+[plugins]
+dprint-test = "source:target/wasm32-wasi/debug/dprint_plugin.wasm"

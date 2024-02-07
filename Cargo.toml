@@ -1,0 +1,30 @@
+[package]
+name = "dprint_plugin"
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ['cdylib']
+
+[dependencies]
+extism-pdk = { version = "1.0.1" }
+proto_pdk = { version = "0.16.1" }
+serde = "1.0.196"
+
+[dev-dependencies]
+proto_pdk_test_utils = { version = "0.18.1" }
+starbase_sandbox = "0.4.0"
+tokio = { version = "1.36.0", features = ["full"] }
+
+[features]
+default = ["wasm"]
+wasm = []
+
+[profile.release]
+codegen-units = 1
+debug = false
+lto = true
+opt-level = "s"
+panic = "abort"
